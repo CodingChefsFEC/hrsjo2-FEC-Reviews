@@ -9,8 +9,8 @@ const compression = require('compression');
 
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(compression());
+app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 
 app.get('/:id', (req, res) => {
