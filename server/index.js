@@ -5,10 +5,13 @@ const path = require('path');
 const db = require('../database/index.js');
 const bodyParser = require('body-parser');
 const _ = require('underscore');
+const compression = require('compression');
+
 
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, '/../client/dist')));
+app.use(compression());
+
 
 app.get('/:id', (req, res) => {
   res.sendFile(path.join(__dirname + '/../client/dist/index.html'));
